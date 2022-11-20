@@ -46,7 +46,7 @@ func handleclientrequest(client net.Conn) {
 	fmt.Sscanf(string(b[:bytes.IndexByte(b[:], '\n')]), "%s%s", &method, &host)
 	fmt.Println(method, host, address)
 	hostporturl, err := url.Parse(host)
-	fmt.Println(hostporturl)
+	fmt.Println(hostporturl, string(b[:bytes.IndexByte(b[:], '\n')]))
 	if err != nil {
 		log.Println(err)
 		return
